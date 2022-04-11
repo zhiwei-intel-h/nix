@@ -77,6 +77,7 @@ pub fn mount<P1: ?Sized + NixPath, P2: ?Sized + NixPath, P3: ?Sized + NixPath, P
         target.with_nix_path(|t| {
             with_opt_nix_path(fstype, |ty| {
                 with_opt_nix_path(data, |d| {
+                    println!("{:#?} {:#?} {:#?} {:#?} {:#?}", s, t.as_ptr(), ty, flags.bits, d);
                     unsafe {
                         libc::mount(
                             s,
